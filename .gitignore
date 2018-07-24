@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/POC/DesignTimeBuild
+/.vs/POC/v15/Server/sqlite3
+/.vs/POC/v15/.suo
+/bin/Debug
+/obj/Debug

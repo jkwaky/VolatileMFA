@@ -1,0 +1,18 @@
+﻿<Window x:Class="POC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POC"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="800">
+    <Border Name="boulder" Padding="10">
+        <StackPanel>
+            <Button Name="Setting" Content="Edit the Settings" Click="Setting_Click" Height="33" FontSize="20" Margin="0,0,0.2,0"/>
+            <TextBox/>
+            <Button Name="Begin" Content="Begin the Application" Click="Begin_Click" Height="29" FontSize="20" Margin="0,0,0.2,0"/>
+            <TextBox Name="domainName" Text="" />
+            <TextBox Name="geoIp2" Text=""/>
+        </StackPanel>
+    </Border>
+</Window>
