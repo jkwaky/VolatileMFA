@@ -5,15 +5,168 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POC"
         mc:Ignorable="d"
-        Title="Difficult" Height="217.541" Width="148.618">
+        Title="Difficult" Height="1200" Width="1900">
     <Grid>
-        <TextBox x:Name="PIN" HorizontalAlignment="Left" Height="23" Margin="10,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter Pin:" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,59,0,0" TextWrapping="Wrap" Text="Enter Password:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,108,0,0" TextWrapping="Wrap" Text="Enter Birthday:" VerticalAlignment="Top"/>
-        <TextBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="10,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="Birthday" HorizontalAlignment="Left" Height="23" Margin="10,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <Button Content="Submit!" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
 
+        <Image 
+            Name="img"
+            Grid.RowSpan="2" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Stretch="Fill" 
+            StretchDirection="Both"
+            
+            Source = "C:\Users\kwakj\source\repos\POC\POC\img\background.jpg"
+            />
+
+        <!--Password-->
+        <Image
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="100,465,0,0"
+            Height="50"
+            Width="50"
+            Source="C:\Users\kwakj\source\repos\POC\POC\img\password.png"
+                
+            />
+        <Button
+            Name="PWButton"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Height="50"
+            Width="50"
+            Margin="99,465,0,0"
+            Opacity=".4" Click="PWButton_Click"
+
+        />
+        <!--PIN-->
+        <Image
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="0,465,0,0"
+            Height="50"
+            Width="50"
+            Source="C:\Users\kwakj\source\repos\POC\POC\img\Untitled drawing (4).png"
+                
+            />
+        <Button
+            Name="PinButton"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Height="50"
+            Width="50"
+            Margin="0,465,0,0"
+            Opacity=".4" Click="PinButton_Click"
+        />
+        <!--Fingerprint-->
+        <Image
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="0,465,100,0"
+            Height="50"
+            Width="50"
+            Source="C:\Users\kwakj\source\repos\POC\POC\img\fingerprint.png"
+                
+            />
+        <Button
+            Name="PrintButton"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Height="50"
+            Width="50"
+            Margin="0,465,99,0"
+            Opacity=".4" Click="PrintButton_Click"
+        />
+        <!--Logo-->    
+        <Image
+            VerticalAlignment="Center"  
+            HorizontalAlignment="Center" 
+            Height="474" 
+            Width="755"
+            Margin="0,0,0,200"
+            Source = "C:\Users\kwakj\source\repos\POC\POC\img\Untitled drawing (2).png"
+            />
+
+        <!--Enter Arrow-->
+        <Image
+            Name="Arrow"
+            Source="C:\Users\kwakj\source\repos\POC\POC\img\arroww.png" 
+            Margin="330,350,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="70"
+            Visibility="Hidden"    
+            />
+        <!--Username-->
+        <Label 
+            Name="User" 
+            FontWeight="Light" 
+            Padding = "0,0,0,0" 
+            Grid.Row = "0" 
+            FontFamily = "Segoe UI" 
+            FontSize="60" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Content="Kwak, Joseph"
+            Foreground="White" 
+            Margin="0,200,0,0" 
+        />
+        <Label
+            Name="watermark"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="50"
+            Background="Transparent"
+            Margin="0,350,0,0"
+            Width="400"
+            Foreground="LightGray"
+        />
+        <PasswordBox 
+            Name="PIN" 
+            HorizontalAlignment="Center" 
+            FontSize="50" 
+            Background="Transparent"
+            Visibility="Hidden"
+            VerticalAlignment="Center"  
+            Margin = "0,350,0,0"  
+            Width="400" 
+            MaxLength="4" PasswordChanged="PW_Changed_Handler"
+        />
+        <PasswordBox 
+            Name="Password" 
+            HorizontalAlignment="Center" 
+            FontSize="50" 
+            Background="Transparent"
+            Visibility="Hidden"
+            VerticalAlignment="Center"  
+            Margin = "0,350,0,0"  
+            Width="400" 
+            MaxLength="12" 
+            PasswordChanged="PW_Changed_Handler"
+        />
+        <Button 
+            Name="ReturnPin"
+            Opacity=".4"
+            IsDefault="True" 
+            Width="70"
+            Height="70" 
+            Margin="330,350,0,0"
+            HorizontalAlignment="Center"    
+            VerticalAlignment="Center"
+            Visibility="Hidden"
+            Click="ReturnPin_Click"
+        />
+        <Button 
+            Name="ReturnPass"
+            Opacity=".4"
+            IsDefault="True" 
+            Width="70"
+            Height="70" 
+            Margin="330,350,0,0"
+            HorizontalAlignment="Center"    
+            VerticalAlignment="Center" 
+            Click="ReturnPass_Click" 
+            Visibility="Hidden"
+        />
     </Grid>
 </Window>

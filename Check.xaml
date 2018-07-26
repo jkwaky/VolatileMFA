@@ -6,48 +6,122 @@
         xmlns:local="clr-namespace:POC"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
-        Title="Check" Width="1024" Height="765.667">
-    <Grid x:Name="LayoutRoot" Background="White">
+        Title="Check" 
+        Width="1024" 
+        Height="765.667"
+        >
+    <Grid 
+        Name="LayoutRoot" 
+        Background="White"
+        >
 
-        <m:Map Name="myMap" CredentialsProvider="AusAlH_rShEjxK6bakC6av_gIKRi7Yh7OXubNiIQ_KwrQ0o8v3mPRkkjc-9_ZjtQ"  
-                Padding="5"
-                Center="29.792855, -95.456733" ZoomLevel="4" AnimationLevel="None" Mode="AerialWithLabels" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDoubleClick="MyMap_MouseDoubleClick" Grid.ColumnSpan="4" Grid.RowSpan="2">
-            <m:MapLayer x:Name="NewPolygonLayer"   Grid.Column="0" Grid.Row="0" Margin="5">
+        <m:Map 
+            Name="myMap" 
+            CredentialsProvider="AusAlH_rShEjxK6bakC6av_gIKRi7Yh7OXubNiIQ_KwrQ0o8v3mPRkkjc-9_ZjtQ"  
+            Padding="5"
+            Center="29.792855, -95.456733" 
+            ZoomLevel="4" 
+            AnimationLevel="None" 
+            Mode="AerialWithLabels" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            MouseDoubleClick="MyMap_MouseDoubleClick" 
+            Grid.ColumnSpan="4" 
+            Grid.RowSpan="2"
+            >
+            <m:MapLayer 
+                Name="NewPolygonLayer"   
+                Grid.Column="0" 
+                Grid.Row="0" 
+                Margin="5"
+                >
 
-                <TextBlock x:Name="txtDescription" Margin="5,5,-5,-5" Height="0" VerticalAlignment="Top">
+                <TextBlock 
+                    Name="txtDescription" 
+                    Margin="5,5,-5,-5" 
+                    Height="0" 
+                    VerticalAlignment="Top"
+                    >
                          Click on the map to create the polygon points
                 </TextBlock>
-
-
             </m:MapLayer>
         </m:Map>
-        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
-                <StackPanel Orientation="Horizontal" Opacity="0.7" Height="39" HorizontalAlignment="Center">
-                    <Button x:Name="close" Margin="5" Click="Close_OnClick">
+        <Grid 
+            VerticalAlignment="Stretch" 
+            HorizontalAlignment="Stretch"
+            >
+            <StackPanel 
+                Orientation="Vertical" 
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Bottom"
+                >
+                <StackPanel 
+                    Orientation="Horizontal" 
+                    Opacity="0.7" 
+                    Height="39" 
+                    HorizontalAlignment="Center"
+                    >
+                    <Button 
+                        Name="close" 
+                        Margin="5" 
+                        Click="Close_OnClick"
+                        >
                         <TextBlock>close</TextBlock>
                     </Button>
-                    <Button x:Name="btnCurrentPosition"  Tag="39.3683,-95.2734,0.0000 4.0000" Click="CurrentView_Click" Margin="5">
+                    <Button 
+                        Name="btnCurrentPosition"  
+                        Tag="39.3683,-95.2734,0.0000 4.0000" 
+                        Click="CurrentView_Click"
+                        Margin="5"
+                        >
                         <TextBlock>Current Position</TextBlock>
                     </Button>
-                    <Button x:Name="btnHouston"  Tag="29.989474,-95.582852,0.0000 17.0000" Margin="5" Click="Houston_Click">
+                    <Button 
+                        Name="btnHouston"  
+                        Tag="29.989474,-95.582852,0.0000 17.0000" 
+                        Margin="5" 
+                        Click="Houston_Click"
+                        >
                         <TextBlock>HP Houston</TextBlock>
                     </Button>
-                    <Button x:Name="btnCreatePolygon" Click="btnCreatePolygon_Click" Margin="5">
+                    <Button 
+                        Name="btnCreatePolygon" 
+                        Click="btnCreatePolygon_Click" 
+                        Margin="5"
+                        >
                         <TextBlock x:Name="txtButton">Create Polygon</TextBlock>
                     </Button>
 
-                    <Button x:Name="SanDiego" Click="SanDiego_Click" Margin="5">
+                    <Button 
+                        Name="SanDiego" 
+                        Click="SanDiego_Click" 
+                        Margin="5"
+                        >
                         <TextBlock>Vancouver</TextBlock>
                     </Button>
-                    <Button x:Name="btnSanFrancisco" Tag="37.6801,-122.3395,0.0000 11.0000" Margin="5" Click="SanFrancisco_click">
+                    <Button 
+                        Name="btnSanFrancisco" 
+                        Tag="37.6801,-122.3395,0.0000 11.0000" 
+                        Margin="5" 
+                        Click="SanFrancisco_click"
+                        >
                         <TextBlock>Palo Alto</TextBlock>
                     </Button>
 
-                    <Button x:Name="btnLogIn" Margin="5" Click="LogIn_Click">
+                    <Button 
+                        Name="btnLogIn" 
+                        Margin="5" 
+                        Click="LogIn_Click"
+                        >
                         <TextBlock>Log In!</TextBlock>
                     </Button>
-                    <ComboBox SelectionChanged="AnimationLevel_SelectionChanged" SelectedIndex="1" Margin="7.5,8,7.5,0" Height="24" VerticalAlignment="Top">
+                    <ComboBox 
+                        SelectionChanged="AnimationLevel_SelectionChanged" 
+                        SelectedIndex="1" 
+                        Margin="7.5,8,7.5,0" 
+                        Height="24" 
+                        VerticalAlignment="Top"
+                        >
                         <ComboBoxItem Content="None" />
                         <ComboBoxItem Content="Full" />
                     </ComboBox>
@@ -63,24 +137,68 @@
                     <Grid.RowDefinitions>
                         <RowDefinition MaxHeight="35" />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Latitude: " Padding="5" Background ="LightGray" Foreground="Black" FontSize="20" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,260,0"/>
-                    <TextBlock x:Name="txtLatitude" Text=""  Background="LightGray"  Grid.Column="1" FontSize="20" Grid.Row="0" HorizontalAlignment= "Stretch"/>
-                    <TextBlock x:Name="txtLongitude" Text="" Background="LightGray" Grid.Column="3" FontSize="20" HorizontalAlignment="Stretch"/>
-                    <TextBlock Text="Longitude: " Padding="5" Background ="LightGray" Foreground="Black" FontSize="20" Grid.Column="2" />
+                    <TextBlock 
+                        Text="Latitude: " 
+                        Padding="5" 
+                        Background ="LightGray" 
+                        Foreground="Black" 
+                        FontSize="20" 
+                        Grid.Column="0" 
+                        Grid.Row="0" 
+                        Grid.ColumnSpan="2" 
+                        Margin="0,0,260,0"/>
+                    <TextBlock 
+                        Name="txtLatitude" 
+                        Text=""
+                        Background="LightGray"  
+                        Grid.Column="1"
+                        FontSize="20" 
+                        Grid.Row="0" 
+                        HorizontalAlignment= "Stretch"
+                        />
+                    <TextBlock 
+                        Name="txtLongitude" 
+                        Text="" 
+                        Background="LightGray" 
+                        Grid.Column="3" 
+                        FontSize="20" 
+                        HorizontalAlignment="Stretch"
+                        />
+                    <TextBlock 
+                        Text="Longitude: " 
+                        Padding="5" 
+                        Background ="LightGray" 
+                        Foreground="Black" 
+                        FontSize="20" 
+                        Grid.Column="2" 
+                        />
 
                 </Grid>
                 <Grid Height="35">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="105*"/>
+                        <ColumnDefinition Width="404*"/>
+                        <ColumnDefinition Width="509*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="coordinate" TextAlignment="Center" Text="" Background="LightGray" HorizontalAlignment="Stretch" FontSize="20" Grid.Column="0" />
-                    <TextBlock x:Name="Network" TextAlignment ="Center" Background="LightGray" HorizontalAlignment="Stretch" FontSize="20" Grid.Column="1"/>
+                    <TextBlock 
+                        Name="coordinate" 
+                        TextAlignment="Left" 
+                        Text="" 
+                        Background="LightGray" 
+                        HorizontalAlignment="Stretch" 
+                        FontSize="20" 
+                        Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,508.334,0" 
+                        />
+                    <TextBlock 
+                        Name="Network" 
+                        TextAlignment ="Left" 
+                        Background="LightGray" 
+                        HorizontalAlignment="Stretch" 
+                        FontSize="20" 
+                        Grid.Column="2" Margin="0.333,0,-0.666,0"
+                        />
                 </Grid>
-
-        </StackPanel>
+            </StackPanel>
         </Grid>
     </Grid>
-
-
 </Window>

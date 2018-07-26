@@ -5,22 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POC"
         mc:Ignorable="d"
-        Title="Lock" Height="450" Width="800" MouseUp="Leave" KeyUp="Leave">
+        Title="Lock" 
+        Height="450" 
+        Width="800" 
+        MouseUp="Leave" 
+        KeyUp="Leave"
+        >
     <Grid>
-        <Image Name="img" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" StretchDirection="Both">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="113*"/>
+        </Grid.ColumnDefinitions>
+        <Image 
+            Name="img" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Stretch="Fill" 
+            StretchDirection="Both" 
+            Grid.ColumnSpan="2"
+            >
 
             <Image.Source>
                 C:\Users\kwakj\source\repos\POC\POC\img\background.jpg
             </Image.Source>
         </Image>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,0" >
+        <StackPanel 
+            Orientation="Vertical" 
+            VerticalAlignment="Bottom" 
+            Margin="0,0,0,0" 
+            Grid.ColumnSpan="2" 
+            >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label FontWeight="Light" Padding = "20,0,0,0" Grid.Row = "1" Name="labelDate" FontFamily = "Segoe UI" FontSize="45" HorizontalAlignment="Left" Foreground="White" Margin="0,0,0,50"></Label>
-                <Label FontWeight="Light" Padding = "20,0,0,0" Grid.Row = "0" Name="labelName" FontFamily = "Segoe UI" FontSize="100" HorizontalAlignment="Left" Foreground="White" Margin="0,0,0,0" ></Label>
+                <Label 
+                    FontWeight="Light" 
+                    Padding = "20,0,0,0" 
+                    Grid.Row = "1" 
+                    Name="labelDate" 
+                    FontFamily = "Segoe UI" 
+                    FontSize="45" 
+                    HorizontalAlignment="Left" 
+                    Foreground="White" 
+                    Margin="0,0,0,50"
+                    />
+                <Label 
+                    FontWeight="Light" 
+                    Padding = "20,0,0,0" 
+                    Grid.Row = "0" 
+                    Name="labelName" 
+                    FontFamily = "Segoe UI" 
+                    FontSize="100" 
+                    HorizontalAlignment="Left" 
+                    Foreground="White" 
+                    Margin="0,0,0,0" 
+                    />
 
             </Grid>
 

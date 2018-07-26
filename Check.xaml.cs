@@ -11,9 +11,19 @@ using System.ComponentModel;
 
 namespace POC
 {
-    /// <summary>
-    /// Interaction logic for Check.xaml
-    /// </summary>
+    /// Map implementation of Bing Maps API 
+    /// Checks user current position
+    /// 3 precoded geofences available: HP Houston, Vancouver, and Palo Alto
+    /// 
+    /// One unique geofence in use at a time
+    ///
+    /// PIP checks to see if point is inside the given polygon (in this case, the geofence)
+    /// Checks network connection to see if the user is registered as a company workstation
+    /// if both are true, implement easy login (Easy) with one authentication
+    /// else, implement hard login (Difficult) with MFA.
+    /// 
+    /// Map is draggable, and can create polygons dynamicaly through mouse doubleclick
+    /// and pressing the Create a Polygon.
     public partial class Check : Window
     {
 
@@ -50,10 +60,10 @@ namespace POC
         MapLayer polygonPointLayer = new MapLayer();
 
         LocationConverter locConverter = new LocationConverter();
-        string inside = "You are inside the company's geofence";
-        string outside = "You are outside the company's geofence";
-        string correct = "You are in the correct network";
-        string wrong = "You are in the wrong network";
+        string inside = " You are inside the company's geofence";
+        string outside = " You are outside the company's geofence";
+        string correct = " You are in the correct network";
+        string wrong = " You are in the wrong network";
 
 
         public static Check checkk
@@ -92,7 +102,6 @@ namespace POC
                                   "{0:F5}", mapCenter.Latitude);
                 txtLongitude.Text = string.Format(CultureInfo.InvariantCulture,
                     "{0:F5}", mapCenter.Longitude);
-
             }
         }
 
@@ -140,14 +149,7 @@ namespace POC
         {
 
             closee = true;
-            if (global.GPS)
-            {
-                Easy easy = Easy.ez;
-            }
-            else
-            {
-                Difficult diff = Difficult.diff;
-            }
+            Lock welcome_screen = Lock.lockit;
             Hide();           
         }
         

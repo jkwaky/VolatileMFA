@@ -41,14 +41,10 @@
             FontSize="50"
             Background="Transparent"
             Margin="0,350,0,0"
-            Width="300"
+            Width="400"
             Foreground="LightGray"
-            
-            
-            
-            >
-
-        </Label>
+            Content="PIN"
+            />
 
         <PasswordBox 
             Name="PIN" 
@@ -58,49 +54,27 @@
             
             VerticalAlignment="Center"  
             Margin = "0,350,0,0"  
-            Width="300" 
+            Width="400" 
             MaxLength="4" PasswordChanged="PW_Changed_Handler"
             />
-        
         <Button 
-                Visibility="Hidden"
-                IsDefault="True" Click="Return_OnClick"
+            Opacity=".4"
+            IsDefault="True" Click="Return_OnClick"
+            Width="70"
+            Height="70" 
+            Margin="330,350,0,0"
+            HorizontalAlignment="Center"    
+            VerticalAlignment="Center"
                 />
-       
-        <StackPanel 
-            Orientation="Vertical" 
-            VerticalAlignment="Bottom" 
-            Margin="0,0,0,0" 
-            >
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Label 
-                    Name="labelDate" 
-                    FontWeight="Light" 
-                    Padding = "20,0,0,0" 
-                    Grid.Row = "1" 
-                    FontFamily = "Segoe UI" 
-                    FontSize="45" 
-                    HorizontalAlignment="Left" 
-                    Foreground="White" 
-                    Margin="0,0,0,50"
-                    />
-                <Label 
-                    Name="labelName" 
-                    FontWeight="Light" 
-                    Padding = "20,0,0,0" 
-                    Grid.Row = "0" 
-                    FontFamily = "Segoe UI" 
-                    FontSize="120" 
-                    HorizontalAlignment="Left" 
-                    Foreground="White" 
-                    Margin="0,0,0,0" 
-                    />
-            </Grid>
-        </StackPanel>
+        <Image
+            Source="C:\Users\kwakj\source\repos\POC\POC\img\arroww.png" 
+            Margin="330,350,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="70"
+            
+            />
+
         <Image
             VerticalAlignment="Center"  
             HorizontalAlignment="Center" 

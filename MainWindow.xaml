@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="800">
+        Title="MainWindow" Height="182.034" Width="800">
     <Border Name="boulder" Padding="10">
         <StackPanel>
             <Button Name="Setting" Content="Edit the Settings" Click="Setting_Click" Height="33" FontSize="20" Margin="0,0,0.2,0"/>

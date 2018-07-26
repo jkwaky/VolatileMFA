@@ -5,16 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POC"
         mc:Ignorable="d"
-        Title="Success" Height="450" Width="800">
+        Title="Success" Height="1200" Width="1800" MouseUp="Leave" KeyUp="Leave">
     <Grid>
 
-        <Image Name="img" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" StretchDirection="Both">
+        <Image 
+            Name="img"
+            Grid.RowSpan="2" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Stretch="Fill" 
+            StretchDirection="Both"
+            >
 
             <Image.Source>
                 C:\Users\kwakj\source\repos\POC\POC\img\background.jpg
             </Image.Source>
         </Image>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,0" >
+        <Image
+            VerticalAlignment="Center"  
+            HorizontalAlignment="Center" 
+            Height="474" 
+            Width="755"
+            Margin="0,0,0,200"
+            >
+            <Image.Source>C:\Users\kwakj\source\repos\POC\POC\img\Untitled drawing (2).png</Image.Source>
+        </Image>
+        <Label 
+            Name="User" 
+            FontWeight="Light" 
+            Padding = "0,0,0,0" 
+            Grid.Row = "0" 
+            FontFamily = "Segoe UI" 
+            FontSize="60" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Content="Kwak, Joseph"
+            Foreground="White" 
+            Margin="0,200,0,0" 
+                    />
+        <StackPanel 
+            Orientation="Vertical" 
+            VerticalAlignment="Bottom" 
+            Margin="0,0,0,0" 
+            
+            >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -23,7 +57,18 @@
             </Grid>
 
         </StackPanel>
-        <Label FontWeight="Light" Content="Welcome" Padding = "0,0,0,0" Name="success" FontFamily = "Segoe UI" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0,100,0,0"></Label>
+        <Label 
+            FontWeight="Light" 
+            Content="Welcome" 
+            Padding = "0,0,0,0" 
+            Name="success" 
+            FontFamily = "Segoe UI" 
+            FontSize="50" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Foreground="White" 
+            Margin="0,350,0,0"
+            ></Label>
 
     </Grid>
 </Window>

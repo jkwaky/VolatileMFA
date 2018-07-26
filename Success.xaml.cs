@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 
 namespace POC
 {
-    /// <summary>
-    /// Interaction logic for Success.xaml
-    /// </summary>
+    /// Window to appear after a successful login
+    /// Returns on any keyperss to the Check window
     public partial class Success : Window
     {
         private static Success instance;
+        private bool close = false;
 
         private Success()
         {
@@ -29,11 +29,11 @@ namespace POC
             // Makes window Full Screen
             WindowState = WindowState.Maximized;
             WindowStyle = WindowStyle.None;
-
-
             Show();
         }
 
+
+        /// Singleton implementation of Success class
         public static Success succeed
         {
             get
@@ -45,7 +45,28 @@ namespace POC
                 return instance;
             }
         }
+        /// Returns to the Check window
+        /// Closes current window
+        /// Called upon any keypress release
 
+        void end()
+        {
+            instance = null;
+            close = true;
+            MainWindow.check.Show();
+            this.Close();
+        }
+
+
+        private void Leave(object sender, MouseButtonEventArgs e)
+        {
+            end();
+        }
+
+        private void Leave(object sender, KeyEventArgs e)
+        {
+            end();
+        }
 
     }
 }

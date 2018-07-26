@@ -16,9 +16,8 @@ using System.Windows.Threading;
 
 namespace POC
 {
-    /// <summary>
-    /// Interaction logic for Lock.xaml
-    /// </summary>
+    /// Initial screen for Windows lock screen (simulated)
+
     public partial class Lock : Window
     {
         private static Lock instance;
@@ -67,6 +66,12 @@ namespace POC
 
         void dayTimer_Tick(object sender, EventArgs e)
         {
+
+            // parse the datetime object to get signficant information
+            // string d is for date
+            // string t is for time
+            // upates the labels to show correct time
+
             dt = DateTime.Now;
             char[] MyChar = { 'P', 'M', 'A' };
             d = String.Format("{0}, {1} {2}", dt.DayOfWeek, dt.ToString("MMMM"), dt.Day);
@@ -92,6 +97,7 @@ namespace POC
             {
                 Difficult difficult = Difficult.diff;
             }
+            Close();
         }
     }
 }

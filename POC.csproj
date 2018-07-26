@@ -156,5 +156,15 @@
   <ItemGroup>
     <Resource Include="img\Untitled drawing %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\arroww.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\fingerprint.png" />
+    <Resource Include="img\Untitled drawing %284%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

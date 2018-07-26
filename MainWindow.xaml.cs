@@ -38,6 +38,12 @@ namespace POC
        
         }
 
+
+        /// <summary>
+        /// REMOVE THIS
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Setting_Click(object sender, RoutedEventArgs e)
         {
             Setting set = POC.Setting.Sett;
