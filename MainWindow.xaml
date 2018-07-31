@@ -8,9 +8,9 @@
         Title="MainWindow" Height="182.034" Width="800">
     <Border Name="boulder" Padding="10">
         <StackPanel>
-            <Button Name="Setting" Content="Edit the Settings" Click="Setting_Click" Height="33" FontSize="20" Margin="0,0,0.2,0"/>
+            <Button Name="Setting" Content="Edit the Settings" Height="33" FontSize="20" Margin="0,0,0.2,0"/>
             <TextBox/>
-            <Button Name="Begin" Content="Begin the Application" Click="Begin_Click" Height="29" FontSize="20" Margin="0,0,0.2,0"/>
+            <Button Name="Begin" Content="Begin the Application" Height="29" FontSize="20" Margin="0,0,0.2,0"/>
             <TextBox Name="domainName" Text="" />
             <TextBox Name="geoIp2" Text=""/>
         </StackPanel>

@@ -6,9 +6,10 @@ using System.Windows;
 
 namespace POC
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// Main Window
+    /// Does NOT show up on the screen
+    /// Buffer for the GPS coordinates to load
+    /// Once it loads, open the Check Window
     public partial class MainWindow : Window
     {
         public static Check check;
@@ -16,18 +17,15 @@ namespace POC
         public MainWindow()
         {
             InitializeComponent();
-            Begin.Visibility = Visibility.Hidden;
-            Setting.Visibility = Visibility.Hidden;
             CLocation.GetLocationEvent();
             CLocation.MainWin = this;
             LocationConverter locConverter = new LocationConverter();
+
             //set default parameters
             global.DomainName = "auth.hpicorp.net";
             string x = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
             geoIp2.Text = x;
-            //domainName.Text = global.Coord.ToString();
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-
+            Visibility = Visibility.Hidden;
 
             global.Locations = new LocationCollection()
             {
@@ -35,28 +33,16 @@ namespace POC
                 new Location(29.991389, -95.580096),
                 new Location(29.988248, -95.579860),
                 new Location(29.987988, -95.585375) };
-       
-        }
 
+            /// Immmediately start the Check window 
+            /// Don't show this window
+            /// This window is unnecessary
 
-        /// <summary>
-        /// REMOVE THIS
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Setting_Click(object sender, RoutedEventArgs e)
-        {
-            Setting set = POC.Setting.Sett;
-        }
-
-        private void Begin_Click(object sender, RoutedEventArgs e)
-        {
-
-            check = POC.Check.checkk;
-            Close();
 
         }
 
+        /// Sets up a watcher to watch for GPS coordinate changes
+        /// Once GPS coordinate is received, close the Main Window
         public static class CLocation
         {
             public static MainWindow MainWin;
@@ -68,15 +54,16 @@ namespace POC
             {
                watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
                watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(watcher_PositionChanged);
-                bool started = watcher.TryStart(false, TimeSpan.FromMilliseconds(2000));
+               bool wait = watcher.TryStart(false, TimeSpan.FromMilliseconds(2000));
             }
+            /// wait until the coordinates are available before going into the program.
             static void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
             {
                 global.Coord = new Location(e.Position.Location.Latitude, e.Position.Location.Longitude);
                 
-                MainWin.Begin.Visibility = Visibility.Visible;
-                MainWin.Setting.Visibility = Visibility.Visible;
-                MainWin.geoIp2.Text = global.Coord.ToString();
+                // closes the window
+                check = POC.Check.checkk;
+                MainWin.Close();
             }
 
            

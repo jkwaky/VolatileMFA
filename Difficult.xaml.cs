@@ -95,24 +95,27 @@ namespace POC
                 end();
             }
         }
+        /// Refractoring for code reuse
         private void hide_pin()
         {
             PIN.Visibility = Visibility.Hidden;
             ReturnPin.Visibility = Visibility.Hidden;
         }
 
+        /// Refractoring for code reuse
         private void show_pin()
         {
             PIN.Visibility = Visibility.Visible;
             ReturnPin.Visibility = Visibility.Visible;
         }
 
- 
+        /// Refractoring for code reuse
         private void hide_pass()
         {
             Password.Visibility = Visibility.Hidden;
             ReturnPass.Visibility = Visibility.Hidden;
         }
+        /// Refractoring for code reuse
         private void show_pass()
         {
             Password.Visibility = Visibility.Visible;

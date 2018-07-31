@@ -141,7 +141,7 @@
             VerticalAlignment="Center"  
             Margin = "0,350,0,0"  
             Width="400" 
-            MaxLength="12" 
+            MaxLength="8" 
             PasswordChanged="PW_Changed_Handler"
         />
         <Button 

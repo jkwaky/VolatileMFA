@@ -94,7 +94,7 @@
 
                     <Button 
                         Name="SanDiego" 
-                        Click="SanDiego_Click" 
+                        Click="Vancouver_click" 
                         Margin="5"
                         >
                         <TextBlock>Vancouver</TextBlock>
@@ -103,7 +103,7 @@
                         Name="btnSanFrancisco" 
                         Tag="37.6801,-122.3395,0.0000 11.0000" 
                         Margin="5" 
-                        Click="SanFrancisco_click"
+                        Click="PaloAlto_Click"
                         >
                         <TextBlock>Palo Alto</TextBlock>
                     </Button>
@@ -135,21 +135,20 @@
                         <ColumnDefinition Width="100*"  />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition MaxHeight="35" />
+                        <RowDefinition Height="35" />
                     </Grid.RowDefinitions>
                     <TextBlock 
-                        Text="Latitude: " 
+                        Name="Lat"
                         Padding="5" 
                         Background ="LightGray" 
                         Foreground="Black" 
                         FontSize="20" 
                         Grid.Column="0" 
                         Grid.Row="0" 
-                        Grid.ColumnSpan="2" 
-                        Margin="0,0,260,0"/>
+                        />
                     <TextBlock 
                         Name="txtLatitude" 
-                        Text=""
+                        Padding="5"
                         Background="LightGray"  
                         Grid.Column="1"
                         FontSize="20" 
@@ -163,9 +162,10 @@
                         Grid.Column="3" 
                         FontSize="20" 
                         HorizontalAlignment="Stretch"
+                        Padding="5"
                         />
                     <TextBlock 
-                        Text="Longitude: " 
+                        Name="Lng"
                         Padding="5" 
                         Background ="LightGray" 
                         Foreground="Black" 

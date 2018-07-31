@@ -63,7 +63,7 @@ namespace POC
                 new Location(29.988432, -95.581593),
                 new Location(29.988984, -95.582418)
         };
-        private static LocationCollection sandiego = new LocationCollection()
+        private static LocationCollection vancouver = new LocationCollection()
         {
             new Location(45.613958, -122.501962),
             new Location(45.612727, -122.501899),
@@ -102,9 +102,9 @@ namespace POC
         {
             get => paloalto;
         }
-        public static LocationCollection SanDiego
+        public static LocationCollection Vancouver
         {
-            get => sandiego;
+            get => vancouver;
         }
         public static LocationCollection Houston
         {

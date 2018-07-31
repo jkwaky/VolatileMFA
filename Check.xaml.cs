@@ -13,7 +13,7 @@ namespace POC
 {
     /// Map implementation of Bing Maps API 
     /// Checks user current position
-    /// 3 precoded geofences available: HP Houston, Vancouver, and Palo Alto
+    /// 3 PreLoaded geofences available: HP Houston, Vancouver, and Palo Alto
     /// 
     /// One unique geofence in use at a time
     ///
@@ -36,6 +36,7 @@ namespace POC
             //Choose better names for variables> like inNetwork
             Network.Text = global.Net ? correct : wrong;
             coordinate.Text = global.GPS ? inside : outside;
+            
             myMap.Mode = new AerialMode(true);
             myMap.Focus();
             SetUpNewPolygon();
@@ -51,7 +52,6 @@ namespace POC
             // Makes window Full Screen
             WindowState = WindowState.Maximized;
             WindowStyle = WindowStyle.None;
-          
             this.Show();
         }
         // The user defined polygon to add to the map.
@@ -65,7 +65,7 @@ namespace POC
         string correct = " You are in the correct network";
         string wrong = " You are in the wrong network";
 
-
+        /// Singleton implementation
         public static Check checkk
         {
             get{
@@ -78,7 +78,7 @@ namespace POC
            
         }
 
-
+        /// Checks the network
         private void getNetwork()
         {
 
@@ -90,21 +90,25 @@ namespace POC
 
 
 
-
+        /// Updates the Map
         private void viewMap_ViewChangeOnFrame(object sender, MapEventArgs e)
         {
             Map map = sender as Map;
             if (map != null)
             {
                 Location mapCenter = map.Center;
-
+                Lat.Text = "Latitude:";
+                Lng.Text = "Longitude:";
                 txtLatitude.Text = string.Format(CultureInfo.InvariantCulture,
                                   "{0:F5}", mapCenter.Latitude);
                 txtLongitude.Text = string.Format(CultureInfo.InvariantCulture,
                     "{0:F5}", mapCenter.Longitude);
+
+
             }
         }
 
+        /// Adds new polygon to the Map
         void addNewPolygon()
         {
             MapPolygon polygon = new MapPolygon();
@@ -124,6 +128,8 @@ namespace POC
             myMap.Children.Add(polygon);
         }
 
+        /// Shows Current Location
+        /// Checks to see if inside Geofence
         private void CurrentView_Click(object sender, RoutedEventArgs e)
         {
             myMap.SetView(global.Coord, 16);
@@ -132,6 +138,7 @@ namespace POC
             coordinate.Text = global.GPS ? inside : outside;
 
         }
+        /// Changes loading styles
         private void AnimationLevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem cbi = (ComboBoxItem)(((ComboBox)sender).SelectedItem);
@@ -144,7 +151,7 @@ namespace POC
         }
 
 
-
+        /// Goes to lock screen
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
 
@@ -152,25 +159,51 @@ namespace POC
             Lock welcome_screen = Lock.lockit;
             Hide();           
         }
-        
-        private void SanDiego_Click(object sender, RoutedEventArgs e)
+        /// Goes to the Vancouver, PaloAlto, or Houston
+        private void Vancouver_click(object sender, RoutedEventArgs e)
         {
-            updates(global.SanDiego);
+            updates(global.Vancouver);
 
             
             myMap.SetView(new Location(45.613215, -122.501084), 18);
         }
-
-        private void SanFrancisco_click(object sender, RoutedEventArgs e)
+        private void PaloAlto_Click(object sender, RoutedEventArgs e)
         {
             updates(global.PaloAlto);
             myMap.SetView(new Location(37.412086, -122.148421), 18);
         }
+        private void Houston_Click(object sender, RoutedEventArgs e)
+        {
+            updates(global.Houston);
+
+            myMap.SetView(new Location(29.990102, -95.582727), 18);
+        }
+
+        /// Updates the Messages
         private void updates(LocationCollection a)
         {
             global.Locations = a;
             global.GPS = PIP();
-            coordinate.Text = global.GPS ? inside : outside;
+
+            if (global.GPS)
+            {
+                coordinate.Text = inside;
+                coordinate.Foreground = Brushes.Green;
+            }
+            else
+            {
+                coordinate.Text = outside;
+                coordinate.Foreground = Brushes.Red;
+            }
+
+            if (global.Net)
+            {
+                Network.Foreground = Brushes.Green;
+            }
+            else
+            {
+                Network.Foreground = Brushes.Red;
+            }
             addNewPolygon();
             Pushpin pin = new Pushpin() { Location = global.Coord };
 
@@ -185,12 +218,8 @@ namespace POC
 
         }
 
-        private void Houston_Click(object sender, RoutedEventArgs e)
-        {
-            updates(global.Houston);
-           
-            myMap.SetView(new Location(29.990102, -95.582727), 18);
-        }
+        /// Point in Polygon Method
+        /// Checks the GPS coordinate against the collection of coordinates
         private static bool PIP()
         {
             bool inside = false;
@@ -229,6 +258,8 @@ namespace POC
             myMap.Focus();
         }
 
+        /// When double clicks happen, 
+        /// represent the click with a box on the clicked location
         private void MyMap_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
@@ -253,6 +284,8 @@ namespace POC
             //Set focus back to the map so that +/- work for zoom in/out
             myMap.Focus();
         }
+
+        /// Instantiate the Polygon that is created from the buttons
         private void btnCreatePolygon_Click(object sender, RoutedEventArgs e)
         {
             //If there are two or more points, add the polygon layer to the map
@@ -267,6 +300,8 @@ namespace POC
                 SetUpNewPolygon();
             }
         }
+        /// Disable the closing of the window
+        /// Dependent on boolean closee
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
